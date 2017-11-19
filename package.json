@@ -1,0 +1,33 @@
+{
+  "name": "scenic-route-client",
+  "version": "0.0.1",
+  "description": "Expressive routing for HTTP service calls",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaunpersad/scenic-route-client.git"
+  },
+  "keywords": [],
+  "author": "shaunpersad@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shaunpersad/scenic-route-client/issues"
+  },
+  "homepage": "https://github.com/shaunpersad/scenic-route-client#readme",
+  "devDependencies": {
+    "ajv": "^5.3.0",
+    "chai": "^4.1.2",
+    "qs": "^6.5.1"
+  },
+  "peerDependencies": {
+    "ajv": "<= 5.x",
+    "qs": "<= 6.x"
+  }
+}

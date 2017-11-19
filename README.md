@@ -1,2 +1,2 @@
 # scenic-route-client
-Expressive routing alternative for express.js
+Expressive routing for HTTP service calls

@@ -1,0 +1,10 @@
+version: '2.1'
+services:
+
+  scenic-route-client:
+    build: .
+    image: shaunpersad/scenic-route-client
+    command: npm test
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
