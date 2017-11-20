@@ -50,8 +50,8 @@ router.group({
     }
 }, (router) => {
    
-    router.route('/users', 'searchUsers');
-    router.route('/repositories', 'searchRepos');
+    router.get('/users', 'searchUsers');
+    router.get('/repositories', 'searchRepos');
 });
 ```
 #### Executing API calls

@@ -272,6 +272,62 @@ describe('createRouter(baseUrl:String, requestHandler:Function(url:String, metho
             });
         });
 
+        describe('router.get(options:Object, name:String)', function() {
+
+            it('should assign a GET operation to the shared operations object', function() {
+
+                const router = createRouter(baseUrl, requestHandler);
+                router.group('/foo', (router) => {
+
+                    router.get('/bar', 'fooBar');
+                    expect(router.operations['fooBar']).to.exist;
+                });
+                expect(router.operations['fooBar'].routeDefinition.routeOptions.method).to.equal('get');
+            });
+        });
+
+        describe('router.post(options:Object, name:String)', function() {
+
+            it('should assign a POST operation to the shared operations object', function() {
+
+                const router = createRouter(baseUrl, requestHandler);
+                router.group('/foo', (router) => {
+
+                    router.post('/bar', 'fooBar');
+                    expect(router.operations['fooBar']).to.exist;
+                });
+                expect(router.operations['fooBar'].routeDefinition.routeOptions.method).to.equal('post');
+            });
+        });
+
+        describe('router.put(options:Object, name:String)', function() {
+
+            it('should assign a PUT operation to the shared operations object', function() {
+
+                const router = createRouter(baseUrl, requestHandler);
+                router.group('/foo', (router) => {
+
+                    router.put('/bar', 'fooBar');
+                    expect(router.operations['fooBar']).to.exist;
+                });
+                expect(router.operations['fooBar'].routeDefinition.routeOptions.method).to.equal('put');
+            });
+        });
+
+        describe('router.delete(options:Object, name:String)', function() {
+
+            it('should assign a DELETE operation to the shared operations object', function() {
+
+                const router = createRouter(baseUrl, requestHandler);
+                router.group('/foo', (router) => {
+
+                    router.delete('/bar', 'fooBar');
+                    expect(router.operations['fooBar']).to.exist;
+                });
+                expect(router.operations['fooBar'].routeDefinition.routeOptions.method).to.equal('delete');
+            });
+        });
+
         describe('router.route(options:String, name:String)', function() {
 
             it('should act as a shortcut for providing {uri: String} as the options object', function() {
