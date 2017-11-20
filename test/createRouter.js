@@ -21,15 +21,16 @@ describe('createRouter(baseUrl:String, requestHandler:Function(url:String, metho
 
         describe('router.group(options:Object, closure:Function)', function() {
 
-            it('should create a new instance of Router with the same baseUrl, requestHandler, and operations object, and return it in the closure', function() {
+            it('should create a new instance of Router with the same baseUrl, requestHandler, serviceName, and operations object, and return it in the closure', function() {
 
-                const router = createRouter(baseUrl, requestHandler);
+                const router = createRouter(baseUrl, requestHandler, 'local');
                 router.group({}, (newRouter) => {
 
                     expect(newRouter).to.not.equal(router);
                     expect(newRouter).to.include({
                         baseUrl: router.baseUrl,
                         requestHandler: router.requestHandler,
+                        serviceName: router.serviceName,
                         operations: router.operations
                     })
                 });
@@ -587,7 +588,7 @@ describe('createRouter(baseUrl:String, requestHandler:Function(url:String, metho
                 it('should call the relevant events for a successful call', function() {
 
                     const callbacks = {
-                        onRequestStart: (context) => {
+                        onRequestStart: function(context) {
 
                             expect(context.method).to.equal('post');
                             expect(context.input).to.nested.include({
@@ -664,7 +665,8 @@ describe('createRouter(baseUrl:String, requestHandler:Function(url:String, metho
                             }
                         },
                         events: {
-                            onRequestStart: (context) => {
+                            onRequestStart: function(context) {
+
                                 callbacks.onRequestStart(context);
                                 count++;
 
