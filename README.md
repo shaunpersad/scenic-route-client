@@ -36,8 +36,8 @@ const router = createRouter('https://api.github.com', (url, method, input, callb
 ```
 #### Defining routes
 We will then define two service calls:
-- `GET https://api.github.com/search/users?q={string}`
-- `GET https://api.github.com/search/repositories?q={string}`
+- `GET https://api.github.com/search/users`
+- `GET https://api.github.com/search/repositories}`
 ```js
 router.group('/search', (router) => {
    
@@ -61,3 +61,61 @@ searchRepos({ query: { q: 'scenic-route-client' } }, (err, payload) => {
     // payload is the result of the API call
 });
 ```
+#### Validation
+We could make the route definitions even more explict by defining their accepted parameters:
+- `GET https://api.github.com/search/users?q={string}`
+- `GET https://api.github.com/search/repositories?q={string}`
+```js
+router.group({ 
+    prefix: '/search', 
+    inputProperties: { 
+        query: { 
+            q: { 
+                type: 'string' 
+            } 
+        } 
+    }
+}, (router) => {
+   
+    router.get('/users', 'searchUsers');
+    router.get('/repositories', 'searchRepos');
+});
+```
+We could also define what we expect back:
+```js
+router.group({ 
+    prefix: '/search', 
+    inputProperties: { 
+        query: { 
+            q: { 
+                type: 'string' 
+            } 
+        } 
+    },
+    success: {
+        '200': {
+            type: 'object',
+            properties: {
+                items: {
+                    type: 'array',
+                    items: {
+                        type: 'object',
+                        properties: {
+                            id: {
+                                type: 'number'
+                            }
+                        },
+                        required: ['id']
+                    }
+                }
+            },
+            required: ['items']
+        }
+    }
+}, (router) => {
+   
+    router.get('/users', 'searchUsers');
+    router.get('/repositories', 'searchRepos');
+});
+```
+The above definitions will then automatically validate both the requests and the responses sent.
