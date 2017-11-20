@@ -39,16 +39,7 @@ We will then define two service calls:
 - `GET https://api.github.com/search/users?q={string}`
 - `GET https://api.github.com/search/repositories?q={string}`
 ```js
-router.group({ 
-    prefix: '/search', 
-    inputProperties: { 
-        query: { 
-            q: { 
-                type: 'string' 
-            } 
-        } 
-    }
-}, (router) => {
+router.group('/search', (router) => {
    
     router.get('/users', 'searchUsers');
     router.get('/repositories', 'searchRepos');
