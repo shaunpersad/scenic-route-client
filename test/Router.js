@@ -89,8 +89,7 @@ describe('Router', function() {
                                 type: 'string'
                             },
                             bar: {
-                                type: 'string',
-                                required: false
+                                type: 'string'
                             }
                         }
                     }
@@ -129,8 +128,7 @@ describe('Router', function() {
                                         type: 'number'
                                     },
                                     corge: {
-                                        type: 'boolean',
-                                        required: false
+                                        type: 'boolean'
                                     },
                                     uier: {
                                         type: 'string'

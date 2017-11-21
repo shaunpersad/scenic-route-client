@@ -535,7 +535,6 @@ describe('createRouter(baseUrl:String, requestHandler:Function(url:String, metho
                                         properties: {
                                             baz: {
                                                 type: 'string',
-                                                required: false,
                                                 default: 'boop'
                                             }
                                         }
@@ -945,7 +944,6 @@ describe('createRouter(baseUrl:String, requestHandler:Function(url:String, metho
                                         properties: {
                                             baz: {
                                                 type: 'string',
-                                                required: false,
                                                 default: 'boop'
                                             }
                                         }
@@ -1211,7 +1209,6 @@ describe('createRouter(baseUrl:String, requestHandler:Function(url:String, metho
                                         properties: {
                                             baz: {
                                                 type: 'string',
-                                                required: false,
                                                 default: 'boop'
                                             }
                                         }
@@ -1662,7 +1659,6 @@ describe('createRouter(baseUrl:String, requestHandler:Function(url:String, metho
                                         properties: {
                                             baz: {
                                                 type: 'string',
-                                                required: false,
                                                 default: 'boop'
                                             }
                                         }
@@ -1923,7 +1919,6 @@ describe('createRouter(baseUrl:String, requestHandler:Function(url:String, metho
                                         properties: {
                                             baz: {
                                                 type: 'string',
-                                                required: false,
                                                 default: 'boop'
                                             }
                                         }
@@ -2209,7 +2204,6 @@ describe('createRouter(baseUrl:String, requestHandler:Function(url:String, metho
                                         properties: {
                                             baz: {
                                                 type: 'string',
-                                                required: false,
                                                 default: 'boop'
                                             }
                                         }
