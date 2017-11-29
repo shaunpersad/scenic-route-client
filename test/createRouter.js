@@ -2396,5 +2396,54 @@ describe('createRouter(baseUrl:String, requestHandler:Function(url:String, metho
 
             });
         });
+
+        describe('rawr', function() {
+
+            it('meow', function(done) {
+
+                let count = 0;
+                const payload = 'successful';
+                const status = 200;
+                const headers = {};
+                const router = createRouter(baseUrl, (url, method, input, callback) => {
+
+
+
+                    callback(null, [], 200, {});
+                });
+
+                router.group('/hmm', (router) => {
+
+                    router.route({
+                        uri: '/foo',
+                        success: {
+                            '200': {
+                                type: 'array'
+                            }
+                        }
+                    }, 'foo');
+
+                    router.route({
+                        uri: '/bar',
+                        success: {
+                            '200': {
+                                type: 'object',
+                                properties: {
+                                    hey: {
+                                        type: 'string'
+                                    }
+                                },
+                                required: ['hey']
+                            }
+                        }
+                    }, 'bar');
+                });
+
+                const operation = router.operation('foo');
+
+                operation(done);
+
+            });
+        });
     });
 });

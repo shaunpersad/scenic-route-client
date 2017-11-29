@@ -488,8 +488,6 @@ describe('Router', function() {
                     expect(responses).to.nested.include({
                         '200.schema.type': 'string',
                         '200.isSuccessResponse': true,
-                        '302.schema.type': 'string',
-                        '302.isSuccessResponse': true,
                         '404.schema.type': 'string',
                         '404.isSuccessResponse': false,
                         '500.schema.type': 'string',
@@ -558,8 +556,7 @@ describe('Router', function() {
 
                     expect(ajvOptions).to.include({
                         foo: 'howdy',
-                        bar: 'hi',
-                        baz: 'hola'
+                        bar: 'hi'
                     });
                 });
             });
