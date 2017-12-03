@@ -1,6 +1,6 @@
 {
   "name": "scenic-route-client",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "Expressive routing for HTTP service calls",
   "main": "index.js",
   "directories": {
